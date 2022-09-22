@@ -5,11 +5,11 @@
 When using ansible for continuous system management, I often found myself using cascaded combines to layer information in my platform:
 
 - provide sane defaults in the role
-- set infrastructure specifig defaults in `group_vars/all`
+- set infrastructure specific defaults in `group_vars/all`
 - set specific settings per location, group, purpose of system on `group_vars/<groupname>`
 - set host overrides in `host_vars/<hostname>`
  
-This works very well when using primirive data types but when using dicts, since the `hash_behaviour=merge` is no longer to be used, I found a lot of this in my roles:
+This works very well when using primitive data types but when using dicts, since the `hash_behaviour=merge` is no longer to be used, I found a lot of this in my roles:
 
     - name: Merge variables from global, host, group
       ansible.builtin.set_fact:
