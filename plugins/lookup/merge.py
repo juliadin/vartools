@@ -133,6 +133,6 @@ class LookupModule(LookupBase):
                 except KeyError:
                     raise AnsibleError('Unable to find variable {}, it should be there though'.format(name))
             if isinstance(value, dict):
-                values.append(value)
+                values.append(self._templar.template(value, fail_on_undefined=True))
 
         return [combine(values, recursive=recursive, list_merge=list_merge), ret_names]
