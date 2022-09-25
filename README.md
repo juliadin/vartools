@@ -35,7 +35,35 @@ Which replaces the above set_fact by
 - sorting the matches for each pattern alphabetically
 - merging all found variables in the resulting order
 
-Legacy patterns:
+## Lookups and limitations
+
+using a lookup means I have to return a list. That makes the [0] after the lookup necessary to get the merged result.
+
+The lookup always returns 2 items:
+
+0. The merged result. Even if no variable matches, this is at least the empty dict `{}` so using it without the default filter should be safe.
+0. Information about the merged items as a list. Each item contains:
+   - a dict with the item `regex`, containing the regex that was tried and 
+   - the item `names`, containing a list with all the variable names that were matched and merged.
+
+## Patterns explained:
+  - **d** - is intended for sane role defaults that are not environment specific
+  - **r** - is intended for roles that include the role using the variable. Example: I would expect `debian_repo_pins_r000_qemu_from_testing` to appear in role `kvm` as a default when it includes the `debian_repo` role. Careful: these are only available while including!
+  - **a** - is intended to be set in `group_vars/all` as environment specific defaults
+  - **g** - is intended for `group_vars/<group>` to override/extend values
+  - **h** - is intended for `host_vars/<hostname>` to set host specific overrides
+
+The legacy pattern catches the name itself for backwards compatibility.
+
+Examples for the `default` patterns I recommend:
+  - `<rolename>_<var>_d000_role_defaults`
+  - `<rolename>_<var>_a000_group_all`
+  - `<rolename>_<var>_g500_<group>_allow_testing_repo_on_dev`
+  - `<rolename>_<var>_h500`
+
+use numbers to irder 
+
+### Legacy patterns:
 
 - "^d_apache_vhosts$"
 - "^d[0-9]+_apache_vhosts$"
@@ -49,7 +77,7 @@ Legacy patterns:
 - "^h_apache_vhosts$"
 - "^h[0-9]+_apache_vhosts$"
 
-Default patterns:
+### Default patterns:
 
 - "^apache_vhosts_d_\\S+$"
 - "^apache_vhosts_d[0-9]+_\\S+$"
@@ -64,8 +92,9 @@ Default patterns:
 
 Additional regexes can be provided as positional arguments.
 
-Precedence is as follows (last wins):
+### Precedence
 
+last merge wins:
 1. merged matches for legacy patterns in order
 1. merged matches for default patterns in order
 1. merged matches for positional argument regexes in order
