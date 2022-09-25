@@ -86,12 +86,12 @@ class LookupModule(LookupBase):
 
         legacy_patterns = []
         if legacy:
-            for pattern in ['d_', 'd[0-9]+_', '', 'a_', 'a[0-9]+_', 'g_', 'g[0-9]+_', 'h_', 'h[0-9]+_']:
+            for pattern in ['d_', 'd[0-9]+_', 'r_', 'r[0-9]+_', '', 'a_', 'a[0-9]+_', 'g_', 'g[0-9]+_', 'h_', 'h[0-9]+_']:
                 legacy_patterns.append('^{}{}$'.format(pattern, legacy))
 
         default_patterns = []
         if default:
-            for pattern in ['_d_', '_d[0-9]+_', '_a_', '_a[0-9]+_', '_g_', '_g[0-9]+_', '_h_', '_h[0-9]+_']:
+            for pattern in ['_d_', '_d[0-9]+_', '_r_', '_r[0-9]+_', '_a_', '_a[0-9]+_', '_g_', '_g[0-9]+_', '_h_', '_h[0-9]+_']:
                 default_patterns.append(r'^{}{}\S+$'.format(default, pattern))
 
         names = []

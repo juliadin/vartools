@@ -39,6 +39,8 @@ Legacy patterns:
 
 - "^d_apache_vhosts$"
 - "^d[0-9]+_apache_vhosts$"
+- "^r_apache_vhosts$"
+- "^r[0-9]+_apache_vhosts$"
 - "^apache_vhosts$"
 - "^a_apache_vhosts$"
 - "^a[0-9]+_apache_vhosts$"
@@ -51,6 +53,8 @@ Default patterns:
 
 - "^apache_vhosts_d_\\S+$"
 - "^apache_vhosts_d[0-9]+_\\S+$"
+- "^apache_vhosts_r_\\S+$"
+- "^apache_vhosts_r[0-9]+_\\S+$"
 - "^apache_vhosts_a_\\S+$"
 - "^apache_vhosts_a[0-9]+_\\S+$"
 - "^apache_vhosts_g_\\S+$"
