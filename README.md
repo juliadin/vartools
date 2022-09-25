@@ -48,7 +48,7 @@ The lookup always returns 2 items:
 
 ## Patterns explained:
   - **d** - is intended for sane role defaults that are not environment specific
-  - **r** - is intended for roles that include the role using the variable. Example: I would expect `debian_repo_pins_r000_qemu_from_testing` to appear in role `kvm` as a default when it includes the `debian_repo` role. Careful: these are only available while including!
+  - **r** - is intended for roles that include the role using the variable. Example: I would expect `debian_repos_pins_r000_qemu_from_testing` to appear in role `kvm` as a default when it includes the `debian_repo` role. Careful: these are only available while including!
   - **a** - is intended to be set in `group_vars/all` as environment specific defaults
   - **g** - is intended for `group_vars/<group>` to override/extend values
   - **h** - is intended for `host_vars/<hostname>` to set host specific overrides
