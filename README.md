@@ -57,6 +57,7 @@ The legacy pattern catches the name itself for backwards compatibility.
 
 Examples for the `default` patterns I recommend:
   - `<rolename>_<var>_d000_role_defaults`
+  - `<rolename>_<var>_r000_<including_rolename>_special_settings`
   - `<rolename>_<var>_a000_group_all`
   - `<rolename>_<var>_g500_<group>_allow_testing_repo_on_dev`
   - `<rolename>_<var>_h500`
@@ -65,30 +66,25 @@ use numbers to irder
 
 ### Legacy patterns:
 
-- "^d_apache_vhosts$"
-- "^d[0-9]+_apache_vhosts$"
-- "^r_apache_vhosts$"
-- "^r[0-9]+_apache_vhosts$"
-- "^apache_vhosts$"
-- "^a_apache_vhosts$"
-- "^a[0-9]+_apache_vhosts$"
-- "^g_apache_vhosts$"
-- "^g[0-9]+_apache_vhosts$"
-- "^h_apache_vhosts$"
-- "^h[0-9]+_apache_vhosts$"
+- `^d_apache_vhosts$`
+- `^d[0-9]+_apache_vhosts$`
+- `^r_apache_vhosts$`
+- `^r[0-9]+_apache_vhosts$`
+- `^apache_vhosts$`
+- `^a_apache_vhosts$`
+- `^a[0-9]+_apache_vhosts$`
+- `^g_apache_vhosts$`
+- `^g[0-9]+_apache_vhosts$`
+- `^h_apache_vhosts$`
+- `^h[0-9]+_apache_vhosts$`
 
 ### Default patterns:
 
-- "^apache_vhosts_d_\\S+$"
-- "^apache_vhosts_d[0-9]+_\\S+$"
-- "^apache_vhosts_r_\\S+$"
-- "^apache_vhosts_r[0-9]+_\\S+$"
-- "^apache_vhosts_a_\\S+$"
-- "^apache_vhosts_a[0-9]+_\\S+$"
-- "^apache_vhosts_g_\\S+$"
-- "^apache_vhosts_g[0-9]+_\\S+$"
-- "^apache_vhosts_h_\\S+$"
-- "^apache_vhosts_h[0-9]+_\\S+$"
+- `^new_style_d((([0-9]+)?(_(\\S+)?$|$))|$)`
+- `^new_style_r((([0-9]+)?(_(\\S+)?$|$))|$)`
+- `^new_style_a((([0-9]+)?(_(\\S+)?$|$))|$)`
+- `^new_style_g((([0-9]+)?(_(\\S+)?$|$))|$)`
+- `^new_style_h((([0-9]+)?(_(\\S+)?$|$))|$)`
 
 Additional regexes can be provided as positional arguments.
 
